@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <title>Authorization</title>
+        <style>
+            .form{
+                margin-left: 30%;
+                margin-top: 100px;
+            }
+            .registration{
+                margin-left: 120px;
+            }
+        </style>
+    </head>
+    <body>
+        <form class="form" th:method="patch" th:action="@{/student/{id}(id=${student.id})}" th:object="${student}">
+            <h1 class="registration">STUDENT AUTHORIZATION PAGE</h1>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="student_name"><b>STUDENT_NAME NAME</b></label>
+                    <input type="text" th:field="${student.firstName}" class="form-control" id="student_name" placeholder="STEVEN">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="last_name"><b>LAST_NAME</b></label>
+                    <input type="text" th:field="${student.lastName}" class="form-control" id="last_name" placeholder="HENRI">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email"><b>EMAIL</b></label>
+                    <input type="email" th:field="${student.email}" class="form-control" id="email" placeholder="steven@gmail.com">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="study_format"><b>EMAIL</b></label>
+                    <input type="text" th:field="${student.studyFormat}" class="form-control" id="study_format" placeholder="steven@gmail.com">
+                </div>
+                <div class="form-group col-md-6">
+                    <label th:field="${student.group.id}"></label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+    </body>
+</html>

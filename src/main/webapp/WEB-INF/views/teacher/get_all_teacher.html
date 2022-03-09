@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+<div style="margin-top: 100px; margin-left: 20%">
+    <h1 style="margin-left: 20%">TEACHER PAGE</h1>
+    <table class="table" style="width: 750px">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">
+                NAME
+            </th>
+            <th scope="col">
+                EMAIL
+            </th>
+            <th scope="col">
+                LAST_NAME
+            </th>
+            <th scope="col">
+                COURSE_ID
+            </th>
+            <th><a href="#" th:href="@{/teacher/add_teacher/{id}(id=${course.id})}">
+                <button type="button" class="btn btn-primary">+</button>
+            </a></th>
+            <th><a href="#" th:href="@{/company}">
+                <button type="button" class="btn btn-primary">home</button>
+            </a></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            <div th:each="teacher:${teachers}">
+                <tr>
+                    <th scope="row" th:text="${teacher.id}"></th>
+                    <th scope="row" th:text="${teacher.firstName}"></th>
+                    <th scope="row" th:text="${teacher.email}"></th>
+                    <th scope="row" th:text="${teacher.lastName}"></th>
+                    <th scope="row" th:text="${teacher.course.id}"></th>
+                    <td>
+                        <a href="#" th:href="@{/teacher/update_teacher/{id}(id=${teacher.id})}" th:method="patch">
+                            <button type="button" class="btn btn-primary">update</button>
+                        </a>
+                    </td>
+                    <td>
+                        <form th:action="@{/teacher/delete_teacher/{id}(id=${teacher.id})}" th:method="delete">
+                            <input type="hidden" value="delete"/>
+                            <button type="submit" class="btn btn-primary">delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </div>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    &lt;!&ndash; CSS only &ndash;&gt;-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"-->
+<!--          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+<!--    &lt;!&ndash; JavaScript Bundle with Popper &ndash;&gt;-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"-->
+<!--            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"-->
+<!--            crossorigin="anonymous"></script>-->
+<!--    <title>COMPANY PAGE</title>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--    <div style="margin-top: 100px; margin-left: 20%">-->
+<!--        <table class="table" style="width: 750px">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th scope="col" colspan="4" style="padding-left: 25%"><a href="/company"><h1>COMPANY_LIST</h1></a></th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--                <tr>-->
+<!--                    <th scope="row">-->
+<!--                        <div class="dropdown">-->
+<!--                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--                                COURSE-->
+<!--                            </button>-->
+<!--                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" th:object="${company}">-->
+<!--                                <li><a class="dropdown-item" th:href="@{/course/get_all/{id}(id=${company.id})}">All course</a></li>-->
+<!--                                <li><a class="dropdown-item" th:href="@{/course/add_course/{id}(id=${company.id})}">Create course</a></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </th>-->
+<!--                    <th scope="row">-->
+<!--                        <div class="dropdown">-->
+<!--                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--                                GROUP-->
+<!--                            </button>-->
+<!--                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">-->
+<!--                                <li><a class="dropdown-item" href="#" th:href="@{/group}">All group</a></li>-->
+<!--                                <li><a class="dropdown-item" href="#" th:href="@{/group/add_group}">Create group</a></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </th>-->
+<!--                    <th scope="row">-->
+<!--                        <div class="dropdown">-->
+<!--                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--                                STUDENT-->
+<!--                            </button>-->
+<!--                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3" th:object="${group}">-->
+<!--                                <li><a class="dropdown-item" href="#" th:href="@{/student/get_all/{id}(id=${group.id})}">All student</a></li>-->
+<!--                                <li><a class="dropdown-item" href="#" th:href="@{/student/add_student/{id}(id=${group.id})}">Add student</a></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </th>-->
+<!--                    <th scope="row">-->
+<!--                        <div class="dropdown">-->
+<!--                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton4" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--                                TEACHER-->
+<!--                            </button>-->
+<!--                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton4">-->
+<!--                                <li><a class="dropdown-item" href="#" th:href="@{/teacher}">All teacher</a></li>-->
+<!--                                <li><a class="dropdown-item" href="#" th:href="@{/teacher/add_teacher/{id}(id=${course.id})}">Add teacher</a></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </th>-->
+<!--                </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </div>-->
+<!--</body>-->
+<!--</html>-->
