@@ -18,7 +18,7 @@
         </style>
     </head>
     <body>
-        <form class="form" method="post" th:action="@{/teacher/save_teacher/{id}(id=${course.id})}" th:object="${course}">
+        <form class="form" method="post" th:action="@{/teacher/save_teacher/{courseId}(courseId=${course.id})}">
             <h1 class="registration">TEACHER AUTHORIZATION PAGE</h1>
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -32,9 +32,6 @@
                 <div class="form-group col-md-6">
                     <label for="email"><b>EMAIL</b></label>
                     <input type="email" th:field="${teacher.email}" class="form-control" id="email" placeholder="brayan_walker@gmail.com">
-                </div>
-                <div class="form-group col-md-6">
-                    <label th:field ="${course.id}"></label>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Sign in</button>

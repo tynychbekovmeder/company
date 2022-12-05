@@ -1,11 +1,7 @@
 package com.dao;
 
-import com.model.Company;
 import com.model.Course;
-import com.model.Group;
 import com.service.CompanyService;
-import com.service.GroupService;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,19 +28,24 @@ public class CourseDaoImpl implements CourseDao {
     @Override
     public void save(Course course, Long id) {
         course.setCompany(companyService.getCompanyById(id));
-        entityManager.merge(course);
+        entityManager.persist(course);
     }
 
     @Override
     public List<Course> getAllCourse(Long id) {
-        return entityManager.createQuery("SELECT c FROM Course c where c.company.id =: id", Course.class).setParameter("id",id).getResultList();
+        return entityManager.createQuery("SELECT c FROM Course c where c.company.id =: id", Course.class).setParameter("id", id).getResultList();
+    }
+
+    @Override
+    public List<Course> findAll() {
+        return entityManager.createQuery("select c from Course c", Course.class).getResultList();
     }
 
     @Override
     public Course getCourseById(Long id) {
         Course course = entityManager.find(Course.class, id);
         if (course == null) {
-            throw new EntityNotFoundException("Can't find Company for ID " + id);
+            throw new EntityNotFoundException("Can't find Course for ID " + id);
         }
         return course;
     }
@@ -57,22 +58,7 @@ public class CourseDaoImpl implements CourseDao {
         entityManager.merge(course1);
     }
 
-
-
-
-//    public void insertStudentAndCourseManyToMany( Student[] students, Course[] courses ) {
-//        for ( Course course : courses ) {
-//            em.persist( course );
-//            for ( Student student : students ) {
-//                student.addCourse( course ); em.persist( student );
-//            }
-//        }
-//    }
-
-
-
-
-        @Override
+    @Override
     public void deleteCourse(Long id) {
         entityManager.remove(getCourseById(id));
     }

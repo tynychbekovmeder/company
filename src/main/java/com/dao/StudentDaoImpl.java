@@ -29,7 +29,7 @@ public class StudentDaoImpl implements StudentDao{
     @Override
     public void save(Student student, Long id) {
         student.setGroup(groupService.getGroupById(id));
-        entityManager.merge(student);
+        entityManager.persist(student);
     }
 
     @Override

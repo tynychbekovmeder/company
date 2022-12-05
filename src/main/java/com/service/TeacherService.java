@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface TeacherService {
 
-    void save(Teacher teacher, Long id) throws Exception;
+    void save(Teacher teacher, Long id);
 
     List<Teacher> getAllTeacher();
 

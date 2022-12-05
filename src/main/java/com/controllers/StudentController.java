@@ -37,11 +37,11 @@ public class StudentController {
         return "student/add_student";
     }
 
-    @PostMapping("/save_student/{id}")
+    @PostMapping("/save_student/{groupId}")
     public String add(@ModelAttribute Student student,
-                      @PathVariable Long id) {
-        studentService.save(student,id);
-        return "redirect:/student/get_all/{id}";
+                      @PathVariable Long groupId) {
+        studentService.save(student,groupId);
+        return "redirect:/student/get_all/{groupId}";
     }
 
     @DeleteMapping("/delete_student/{id}")

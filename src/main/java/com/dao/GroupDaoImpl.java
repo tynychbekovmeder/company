@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -34,8 +36,7 @@ public class GroupDaoImpl implements GroupDao{
         Course course = courseService.getCourseById(id);
         course.setCourse(group);
         group.setCourse(course);
-        group.setCompany(companyService.getCompanyById(id));
-        entityManager.merge(group);
+        entityManager.persist(group);
     }
 
     @Override
@@ -47,7 +48,7 @@ public class GroupDaoImpl implements GroupDao{
     public Group getGroupById(Long id) {
         Group group = entityManager.find(Group.class,id);
         if (group == null) {
-            throw new EntityNotFoundException("Can't find Company for ID " + id);
+            throw new EntityNotFoundException("Can't find Group for ID " + id);
         }
         return group;
     }
@@ -65,6 +66,11 @@ public class GroupDaoImpl implements GroupDao{
 
     @Override
     public void deleteGroup(Long id) {
-        entityManager.remove(getGroupById(id));
+        Group group = getGroupById(id);
+
+        for (Course course: group.getCourseList()){
+            group.getCourseList().clear();
+        }
+        entityManager.remove(group);
     }
 }

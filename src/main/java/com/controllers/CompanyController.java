@@ -33,7 +33,8 @@ public class CompanyController {
     }
 
     @PostMapping("/save_company")
-    public String add(@ModelAttribute("company1") Company company) {
+    public String add(Company company) {
+        System.out.println("NEW COMPANY: " + company.toString());
         service.save(company);
         return "redirect:/company";
     }

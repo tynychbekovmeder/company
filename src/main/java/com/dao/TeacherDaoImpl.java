@@ -26,13 +26,9 @@ public class TeacherDaoImpl implements TeacherDao {
     private EntityManager entityManager;
 
     @Override
-    public void save(Teacher teacher, Long id) throws Exception {
-        if(getAllTeacher() == null){
-            teacher.setCourse(courseService.getCourseById(id));
-            entityManager.merge(teacher);
-        }else{
-            throw new Exception("Out of bound");
-        }
+    public void save(Teacher teacher, Long id){
+        teacher.setCourse(courseService.getCourseById(id));
+        entityManager.persist(teacher);
     }
 
     @Override

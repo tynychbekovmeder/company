@@ -10,6 +10,8 @@ public interface CourseDao {
 
     List<Course> getAllCourse(Long id);
 
+    List<Course> findAll();
+
     Course getCourseById(Long id);
 
     void updateCourse(Long id, Course course);

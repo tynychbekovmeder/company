@@ -17,7 +17,7 @@ public class TeacherServiceImpl implements TeacherService {
     private final TeacherDao teacherDao;
 
     @Override
-    public void save(Teacher teacher, Long id) throws Exception {
+    public void save(Teacher teacher, Long id){
         teacherDao.save(teacher, id);
     }
 

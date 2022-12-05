@@ -37,11 +37,12 @@ public class TeacherController {
         return "teacher/add_teacher";
     }
 
-    @PostMapping("/save_teacher/{id}")
+    @PostMapping("/save_teacher/{courseId}")
     public String add(@ModelAttribute Teacher teacher,
-                      @PathVariable Long id) throws Exception {
-            teacherService.save(teacher, id);
-        return "redirect:/teacher/get_all/{id}";
+                      @PathVariable Long courseId){
+        System.out.println("SAVING NEW TEACHER: " + teacher.toString());
+            teacherService.save(teacher, courseId);
+        return "redirect:/teacher/get_all/{courseId}";
     }
 
     @DeleteMapping("/delete_teacher/{id}")

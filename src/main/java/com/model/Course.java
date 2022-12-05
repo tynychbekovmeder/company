@@ -29,7 +29,10 @@ public class Course {
     private Company company;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinTable(name = "course_groups", joinColumns = @JoinColumn(name = "group_id"),inverseJoinColumns = @JoinColumn(name = "course_id"))
+    @JoinTable(
+            name = "course_groups",
+            joinColumns = @JoinColumn(name = "group_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id"))
     private List<Group> groupList;
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "course")

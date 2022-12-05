@@ -18,7 +18,7 @@
         </style>
     </head>
     <body>
-        <form class="form" method="post" th:action="@{/student/save_student/{id}(id=${group.id})}" th:object="${group}">
+        <form class="form" method="post" th:action="@{/student/save_student/{groupId}(groupId=${group.id})}">
             <h1 class="registration">STUDENT AUTHORIZATION PAGE</h1>
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -37,9 +37,6 @@
                     <label for="study_format"><b>STUDY_FORMAT</b></label>
                     <input type="text" th:field="${student.studyFormat}" class="form-control" id="study_format" placeholder="ONLINE">
                 </div>
-                <div class="form-group col-md-6">
-                <label th:field="${group.id}"></label>
-            </div>
             </div>
             <button type="submit" class="btn btn-primary">Sign in</button>
         </form>

@@ -37,11 +37,10 @@ public class CourseController {
         return "course/add_course";
     }
 
-    @PostMapping("/save_course/{id}")
-    public String saveCourse(@ModelAttribute Course course,
-                             @PathVariable Long id) {
-        courseService.save(course, id);
-        return "redirect:/course/get_all/{id}";
+    @PostMapping("/save_course/{companyId}")
+    public String saveCourse(Course course, @PathVariable Long companyId) {
+        courseService.save(course, companyId);
+        return "redirect:/course/get_all/{companyId}";
     }
 
     @DeleteMapping("/delete_course/{id}")
